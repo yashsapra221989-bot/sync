@@ -70,8 +70,14 @@ def get_local_ip():
 
 @app.route('/')
 def index():
-    """Serve the main form page"""
-    with open('sync.html', 'r', encoding='utf-8') as f:
+    """Serve the login page as the entry point"""
+    with open('login.html', 'r', encoding='utf-8') as f:
+        return f.read()
+
+@app.route('/login.html')
+def login_page():
+    """Serve the login page"""
+    with open('login.html', 'r', encoding='utf-8') as f:
         return f.read()
 
 @app.route('/qr.html')
