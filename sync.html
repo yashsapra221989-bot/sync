@@ -4,9 +4,15 @@
 <head>
 <title>Emergency QR Medical ID</title>
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2d5a3d 0%, #5a9b6f 100%);
     margin: 0;
     padding: 20px;
     display: flex;
@@ -16,19 +22,20 @@ body {
 }
 
 .container {
-    background: linear-gradient(to bottom, #ffffff 0%, #f8f9ff 100%);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-width: 450px;
+    background: linear-gradient(to bottom, #faf8f5 0%, #f5f3f0 100%);
+    padding: 50px 45px;
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(45, 90, 61, 0.2);
+    max-width: 480px;
     width: 100%;
-    animation: slideIn 0.5s ease-out;
+    animation: slideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid rgba(90, 155, 111, 0.1);
 }
 
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -38,12 +45,24 @@ body {
 
 h2 {
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2d5a3d 0%, #3f7d52 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 30px;
-    font-size: 28px;
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #8b8b8b;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 form {
@@ -52,157 +71,165 @@ form {
 }
 
 .form-group {
-    margin-bottom: 20px;
-    animation: fadeIn 0.6s ease-out forwards;
+    margin-bottom: 25px;
+    animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
 }
 
-.form-group:nth-child(1) { animation-delay: 0.1s; }
-.form-group:nth-child(2) { animation-delay: 0.2s; }
-.form-group:nth-child(3) { animation-delay: 0.3s; }
-.form-group:nth-child(4) { animation-delay: 0.4s; }
-.form-group:nth-child(5) { animation-delay: 0.5s; }
-.form-group:nth-child(6) { animation-delay: 0.6s; }
+.form-group:nth-child(1) { animation-delay: 0.15s; }
+.form-group:nth-child(2) { animation-delay: 0.25s; }
+.form-group:nth-child(3) { animation-delay: 0.35s; }
+.form-group:nth-child(4) { animation-delay: 0.45s; }
+.form-group:nth-child(5) { animation-delay: 0.55s; }
+.form-group:nth-child(6) { animation-delay: 0.65s; }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #333;
-    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #2d5a3d;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.7px;
+    opacity: 0.95;
 }
 
 input[type="text"] {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 14px;
+    padding: 14px 16px;
+    border: 2px solid #d9d1c8;
+    border-radius: 10px;
+    font-size: 15px;
     box-sizing: border-box;
-    transition: all 0.3s ease;
-    background-color: #f8f9ff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #fdfbf8;
+    font-weight: 500;
 }
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #3f7d52;
     background-color: white;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 4px rgba(63, 125, 82, 0.12);
+    transform: translateY(-1px);
+}
+
+input[type="text"]::placeholder {
+    color: #c5bab0;
+    font-weight: 400;
 }
 
 button {
-    padding: 14px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 16px 28px;
+    background: linear-gradient(135deg, #2d5a3d 0%, #3f7d52 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
-    font-weight: 600;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    font-weight: 700;
+    margin-top: 20px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(45, 90, 61, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
 button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(90, 155, 111, 0.3);
+}
+
+button:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 button:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
 }
 
 #qrcode {
     text-align: center;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: rgba(102, 126, 234, 0.05);
-    border-radius: 10px;
-    animation: fadeIn 0.6s ease-out;
+    margin-top: 35px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    animation: fadeInUp 0.6s ease-out 0.7s both;
+    box-shadow: 0 8px 25px rgba(45, 90, 61, 0.12);
 }
 
-#cameraContainer {
-    text-align: center;
-    background-color: #f0f0f0;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-#cameraContainer video {
-    border: 3px solid #667eea;
-    border-radius: 10px;
-    margin-top: 10px;
-    display: block !important;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-    transition: transform 0.3s ease;
+.progress-bar {
     width: 100%;
-    max-width: 300px;
-    height: auto;
-    background-color: black;
+    height: 4px;
+    background-color: #e8dcd1;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
-#cameraContainer video:hover {
-    transform: scale(1.02);
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3f7d52 0%, #5a9b6f 100%);
+    width: 0%;
+    transition: width 0.3s ease;
 }
 
-#photo {
-    border: 3px solid #667eea;
-    border-radius: 10px;
-    margin-top: 10px;
+.field-status {
+    font-size: 12px;
+    margin-top: 6px;
+    display: none;
+    font-weight: 600;
+}
+
+.field-status.valid {
+    color: #00c853;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-    animation: fadeIn 0.5s ease-out;
 }
 
-#captureBtn {
-    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
-    margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+.field-status.invalid {
+    color: #ff5252;
+    display: block;
 }
 
-#captureBtn:hover {
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
-}
-
-#retakeBtn {
-    background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%);
-    margin-top: 10px;
-    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
-}
-
-#retakeBtn:hover {
-    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.6);
-}
-
-/* Toast Notification Styles */
 .toast {
     position: fixed;
     bottom: 20px;
     right: 20px;
     padding: 16px 24px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #3f7d52 0%, #5a9b6f 100%);
     color: white;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     animation: slideInRight 0.4s ease-out;
     z-index: 1000;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .toast.success {
@@ -211,10 +238,6 @@ button:active {
 
 .toast.error {
     background: linear-gradient(135deg, #ff5252 0%, #ff6e40 100%);
-}
-
-.toast.warning {
-    background: linear-gradient(135deg, #ffa726 0%, #ff7043 100%);
 }
 
 @keyframes slideInRight {
@@ -228,106 +251,23 @@ button:active {
     }
 }
 
-@keyframes slideOutRight {
-    from {
-        transform: translateX(0);
-        opacity: 1;
+@media (max-width: 600px) {
+    .container {
+        padding: 35px 25px;
+        border-radius: 18px;
     }
-    to {
-        transform: translateX(400px);
-        opacity: 0;
+    
+    h2 {
+        font-size: 26px;
     }
-}
-
-.toast.hide {
-    animation: slideOutRight 0.4s ease-out forwards;
-}
-
-/* Progress Indicator */
-.progress-bar {
-    width: 100%;
-    height: 3px;
-    background-color: #e0e0e0;
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    width: 0%;
-    transition: width 0.3s ease;
-}
-
-/* Input validation indicators */
-input.valid {
-    border-color: #00c853 !important;
-    box-shadow: 0 0 0 3px rgba(0, 200, 83, 0.1) !important;
-}
-
-input.invalid {
-    border-color: #ff5252 !important;
-    box-shadow: 0 0 0 3px rgba(255, 82, 82, 0.1) !important;
-}
-
-.field-status {
-    font-size: 12px;
-    margin-top: 4px;
-    display: none;
-    font-weight: 500;
-}
-
-.field-status.valid {
-    color: #00c853;
-    display: block;
-}
-
-.field-status.invalid {
-    color: #ff5252;
-    display: block;
-}
-
-/* Loading spinner */
-.spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-right: 10px;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Button loading state */
-button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-/* Photo status badge */
-.photo-status-badge {
-    display: inline-block;
-    padding: 6px 12px;
-    background-color: #00c853;
-    color: white;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 10px;
-    animation: fadeIn 0.5s ease-out;
 }
 </style>
 </head>
 
 <body>
 <div class="container">
-<h2>Emergency QR Medical ID</h2>
+<h2>🏥 Emergency Medical ID</h2>
+<p class="subtitle">Create Your QR Code</p>
 
 <form id="medicalForm">
 <div class="progress-bar">
@@ -364,21 +304,14 @@ button:disabled {
 <div class="field-status" id="contactStatus"></div>
 </div>
 
-<div class="form-group">
-<label>Capture Photo:</label>
-<div id="cameraContainer">
-    <video id="video" width="300" height="225" autoplay muted playsinline></video>
-    <canvas id="canvas" width="300" height="225" style="display:none;"></canvas>
-    <br>
-    <button type="button" id="captureBtn" style="display:none;">Capture Photo</button>
-    <button type="button" id="retakeBtn" style="display:none;" onclick="retakePhoto()">Retake Photo</button>
-</div>
-<img id="photo" style="max-width: 300px; display:none;">
-<div id="photoStatus"></div>
-</div>
-
 <button type="button" id="generateBtn" onclick="generateQR()">Generate QR Code</button>
 </form>
+
+<div style="text-align: center; margin-top: 20px;">
+    <button type="button" onclick="window.location.href='dashboard.html'" style="padding: 12px 24px; background: linear-gradient(135deg, #2d5a3d 0%, #3f7d52 100%); color: white; border: none; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px; transition: all 0.3s ease; cursor: pointer;">
+        View Dashboard
+    </button>
+</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
